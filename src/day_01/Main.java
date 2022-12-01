@@ -10,10 +10,28 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<String> list = AocReader.getListOfStrings("d01_input.txt");
-        ArrayList<Integer> scores = new ArrayList<>();
-        System.out.println(list);
-        int[] topScores = {0,0,0};
+
+
+        // PART 1
         int score = 0;
+        int topScore = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i) != ""){
+                score += Integer.parseInt(list.get(i));
+            } else {
+                if (score > topScore){
+                    topScore = score;
+                }
+                score = 0;
+            }
+        }
+
+        System.out.println("Part 1: " + topScore);
+
+        //PART2
+
+        ArrayList<Integer> scores = new ArrayList<>();
+        score = 0;
         for (int i = 0; i < list.size(); i++) {
             if(list.get(i) != ""){
                 score += Integer.parseInt(list.get(i));
@@ -23,9 +41,12 @@ public class Main {
             }
         }
 
+        //Sorterar listan så högsta värdet hämnar på index 0
         scores.sort(Collections.reverseOrder());
+
+        // Summerar top 3 värdena
         int sum = scores.get(0) + scores.get(1) + scores.get(2);
-        System.out.println(sum);
+        System.out.println("Part 2: " + sum);
 
     }
 }
