@@ -9,8 +9,9 @@ import java.util.Collections;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-        ArrayList<String> list = AocReader.getListOfStrings("d1_input.txt");
+        ArrayList<String> list = AocReader.getListOfStrings("d01_input.txt");
         ArrayList<Integer> scores = new ArrayList<>();
+        System.out.println(list);
         int[] topScores = {0,0,0};
         int score = 0;
         for (int i = 0; i < list.size(); i++) {
