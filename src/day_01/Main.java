@@ -5,6 +5,7 @@ import AocUtils.AocReader;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 public class Main {
 
@@ -16,7 +17,7 @@ public class Main {
         int score = 0;
         int topScore = 0;
         for (int i = 0; i < list.size(); i++) {
-            if(list.get(i) != ""){
+            if(!Objects.equals(list.get(i), "")){
                 score += Integer.parseInt(list.get(i));
             } else {
                 if (score > topScore){
@@ -33,7 +34,7 @@ public class Main {
         ArrayList<Integer> scores = new ArrayList<>();
         score = 0;
         for (int i = 0; i < list.size(); i++) {
-            if(list.get(i) != ""){
+            if(!Objects.equals(list.get(i), "")){
                 score += Integer.parseInt(list.get(i));
             } else {
                 scores.add(score);
