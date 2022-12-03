@@ -64,5 +64,60 @@ public class Main {
             totalScore += roundScore;
         }
         System.out.println("Part 1: " + totalScore);
+
+        //DEL 2
+
+        /*
+            A = Rock 1p
+            B = Paper 2p
+            C = Scissors 3p
+
+            X = Lose 0p
+            Y = Draw 3p
+            Z = Win 6p
+         */
+        totalScore = 0;
+        for (int i = 0; i < input.size(); i++) {
+            String outcome = input.get(i).substring(2, 3);
+            String opponent = input.get(i).substring(0, 1);
+            int roundScore = 0;
+            if(opponent.equals("A")){
+                if(outcome.equals("Y")){
+                    roundScore += 4;
+                }
+                else if(outcome.equals("Z")){
+                    roundScore += 8;
+                }
+                else{
+                    roundScore += 3;
+                }
+            }
+
+            if(opponent.equals("B")){
+                if(outcome.equals("Y")){
+                    roundScore += 5;
+                }
+                else if(outcome.equals("Z")){
+                    roundScore += 9;
+                }
+                else{
+                    roundScore += 1;
+                }
+            }
+
+            if(opponent.equals("C")){
+                if(outcome.equals("Y")){
+                    roundScore += 6;
+                }
+                else if(outcome.equals("Z")){
+                    roundScore += 7;
+                }
+                else{
+                    roundScore += 2;
+                }
+            }
+            totalScore += roundScore;
+        }
+        System.out.println("Part 2: " + totalScore);
     }
 }
