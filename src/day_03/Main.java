@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        ArrayList<String> input = AocReader.getListOfStrings("d03_input.txt");
+        ArrayList<String> input = AocReader.getListOfStrings("d03_test.txt");
         System.out.println(input);
 
         // Part 1
@@ -26,7 +26,7 @@ public class Main {
             }
 
             //Kollar om andra compartmenten innehåller nått item från det första och lägger isf
-            // till den i commonItems
+            // till den i checkString
             for (int j = 0; j < first.size(); j++) {
                 if(compartments.get(1).contains(""+ first.get(j) +"")){
                     commonItems.add(first.get(j));
@@ -57,6 +57,27 @@ public class Main {
         for (int i = 0; i < commonItems.size(); i++) {
             totalPrio += values.get(commonItems.get(i));
         }
-        System.out.println(totalPrio);
+        System.out.println("Part 1: " + totalPrio);
+
+
+        // Part 2
+
+        commonItems.clear();
+        ArrayList<Character> checkString = new ArrayList<>();
+        for (int i = 0; i < input.size(); i++) {
+            checkString.clear();
+            for (int j = 0; j < input.get(i).length(); j++) {
+                checkString.add(input.get(i).charAt(j));
+            }
+            for (int j = 0; j < checkString.size(); j++) {
+                if(input.get(i+1).contains(""+checkString.get(j)) && input.get(i+2).contains(""+checkString.get(j))) {
+                    checkString.remove(j);
+                }
+            }
+
+            i += 2;
+            System.out.println(checkString);
+        }
+
     }
 }
